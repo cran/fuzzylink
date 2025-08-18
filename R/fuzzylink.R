@@ -54,6 +54,16 @@ fuzzylink <- function(dfA, dfB,
   if(openai_api_key == ''){
     stop("No API key detected in system environment. You can enter it manually using the 'openai_api_key' argument.")
   }
+  missing_dfA <- sum(!stats::complete.cases(dfA[,c(by, blocking.variables), drop = FALSE]))
+  if(missing_dfA > 0){
+    warning('Dropping ', missing_dfA, ' observation(s) with missing values from dfA.')
+    dfA <- dfA[stats::complete.cases(dfA[, c(by,blocking.variables), drop = FALSE]), ]
+  }
+  missing_dfB <- sum(!stats::complete.cases(dfB[,c(by, blocking.variables), drop = FALSE]))
+  if(missing_dfB > 0){
+    warning('Dropping ', missing_dfB, ' observation(s) with missing values from dfB.')
+    dfB <- dfB[stats::complete.cases(dfB[, c(by,blocking.variables), drop = FALSE]), ]
+  }
 
 
   ## Step 0: Blocking -----------------
@@ -153,6 +163,8 @@ fuzzylink <- function(dfA, dfB,
   namekey <- c(Var1 = 'A', Var2 = 'B', value = 'sim', L1 = 'block')
   names(df) <- namekey[names(df)]
   df <- dplyr::filter(df, !is.na(sim))
+  df$A <- as.character(df$A)
+  df$B <- as.character(df$B)
 
   # add lexical string distance measures
   df$jw <- stringdist::stringsim(tolower(df$A), tolower(df$B),
@@ -173,6 +185,14 @@ fuzzylink <- function(dfA, dfB,
   train <- df |>
     dplyr::distinct(A, B, .keep_all = TRUE)
 
+  # omit exact matches from the train set during active learning loop
+  num_exact <- sum(train$A == train$B)
+  if(num_exact > 0){
+    train_exact <- train[train$A == train$B,]
+    train_exact$match <- 'Yes'
+    train_exact$match_probability <- 1
+    train <- train[train$A != train$B,]
+  }
 
   # label initial training set (n_t=500)
   train$match <- NA
@@ -345,6 +365,11 @@ fuzzylink <- function(dfA, dfB,
     return(df$match_probability[which.max(df$expected_f1)])
   }
 
+  # add the exact matches back to train before remerging with df
+  if(num_exact > 0){
+    train <- dplyr::bind_rows(train_exact, train)
+  }
+
   df <- df |>
     # merge with labels from train set
     dplyr::left_join(train |>
@@ -356,6 +381,9 @@ fuzzylink <- function(dfA, dfB,
   } else{
     df$match_probability <- stats::predict.glm(fit, df, type = 'response')
   }
+
+  # for exact matches, match_probability = 1
+  df$match_probability <- ifelse(df$A == df$B, 1, df$match_probability)
 
   stop_condition_met <- FALSE
   while(!stop_condition_met){

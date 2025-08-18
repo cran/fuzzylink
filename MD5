@@ -1,11 +1,11 @@
-02bf34ffc577e5c1fc4c1da968bfbd1d *DESCRIPTION
+99c89baa4b71e78479a991990074ad46 *DESCRIPTION
 3025bcd8cd03b2c9a0f5dbe32d6ce7fe *LICENSE
 01b2a886a5f56f6445ec563007e6c289 *NAMESPACE
-4fb8a3bf6898056ff3cb3f4a964ac8d6 *NEWS.md
+ff577bed51163f23185cfa6946205f97 *NEWS.md
 671df3936d1a50eca9ff1b82f55e2cbd *R/check_match.R
 1959c070b860bc4ef09918319a8c50bd *R/dot.R
-bdad059493a62302563065ae0b266de5 *R/fuzzylink.R
-bc942d509df8a3ce4f2391873083a9d3 *R/get_embeddings.R
+e2629628bb6bd4467f2159a45a50ce59 *R/fuzzylink.R
+b74b74bd038cb5b3b8dbc039374ecafc *R/get_embeddings.R
 939bb936478e7cac53506e96cfa90d97 *R/get_similarity_matrix.R
 13f57ec31d9f181921dadbe414ff025d *R/get_training_set.R
 a2399554faf199d12c833930a55b77b5 *R/hand_label.R
