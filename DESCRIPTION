@@ -1,10 +1,10 @@
 Package: fuzzylink
 Title: Probabilistic Record Linkage Using Pretrained Text Embeddings
-Version: 0.2.4
+Version: 0.2.5
 Authors@R: 
     person("Joe", "Ornstein", , "jornstein@uga.edu", role = c("aut", "cre", "cph"),
            comment = c(ORCID = "0000-0002-5704-2098"))
-Description: Links datasets through fuzzy string matching using pretrained text embeddings. Produces more accurate record linkage when lexical string distance metrics are a poor guide to match quality (e.g., "Patricia" is more lexically similar to "Patrick" than it is to "Trish"). Capable of performing multilingual record linkage. Methods are described in Ornstein (2025) <https://joeornstein.github.io/publications/fuzzylink.pdf>.
+Description: Links datasets through fuzzy string matching using pretrained text embeddings. Produces more accurate record linkage when lexical string distance metrics are a poor guide to match quality (e.g., "Patricia" is more lexically similar to "Patrick" than it is to "Trish"). Capable of performing multilingual record linkage. Methods are described in Ornstein (2025) <doi:10.1017/pan.2025.10016>.
 License: MIT + file LICENSE
 Encoding: UTF-8
 RoxygenNote: 7.3.2
@@ -14,9 +14,9 @@ Depends: R (>= 4.1.0)
 URL: https://github.com/joeornstein/fuzzylink
 BugReports: https://github.com/joeornstein/fuzzylink/issues
 NeedsCompilation: no
-Packaged: 2025-08-18 15:00:00 UTC; jo22058
+Packaged: 2025-08-29 19:04:07 UTC; jo22058
 Author: Joe Ornstein [aut, cre, cph] (ORCID:
     <https://orcid.org/0000-0002-5704-2098>)
 Maintainer: Joe Ornstein <jornstein@uga.edu>
 Repository: CRAN
-Date/Publication: 2025-08-18 15:50:02 UTC
+Date/Publication: 2025-08-29 19:30:07 UTC

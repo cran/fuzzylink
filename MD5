@@ -1,7 +1,7 @@
-99c89baa4b71e78479a991990074ad46 *DESCRIPTION
+35b9641e97e228ef3e7092aef1fe951f *DESCRIPTION
 3025bcd8cd03b2c9a0f5dbe32d6ce7fe *LICENSE
 01b2a886a5f56f6445ec563007e6c289 *NAMESPACE
-ff577bed51163f23185cfa6946205f97 *NEWS.md
+304763298213e4ff88ddce1c261669c8 *NEWS.md
 671df3936d1a50eca9ff1b82f55e2cbd *R/check_match.R
 1959c070b860bc4ef09918319a8c50bd *R/dot.R
 e2629628bb6bd4467f2159a45a50ce59 *R/fuzzylink.R
@@ -12,7 +12,7 @@ a2399554faf199d12c833930a55b77b5 *R/hand_label.R
 9181bb888bba855d700c01cdbc86bebb *R/mistral_api_key.R
 b4149d4ca4dc1bd4753e3c79e06e7028 *R/openai_api_key.R
 ac0a807cb785114fc17b7811998c9499 *R/utils.R
-b46cd12e04c667df0fefed2f97aeda34 *README.md
+7a060c74f561fe0834e83d0ce08d3ccd *README.md
 cbb3cd48d2a2c589ea80f00ee48f0dee *man/check_match.Rd
 71c2904ed9012faa02dab2203f49fdb2 *man/dot.Rd
 b66c77acb7ff6d4c7f38de020b0a71e2 *man/fuzzylink.Rd
